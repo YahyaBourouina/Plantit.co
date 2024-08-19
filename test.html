@@ -1,0 +1,2095 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" href="./img/logo.png" type="image/png">
+	<title>Plantit - Home</title>
+	<style>
+
+*, *::before, *::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	transition: all 0.5s linear;
+}
+
+body {
+	width: 100vw;
+	height: 100vh;
+	background: white;
+	background: linear-gradient(to top, #C1CBD1 0%, #FFFFFF 18%);
+}
+
+.nav {
+	position: fixed;
+	z-index: 100;
+	background: transparent;
+	width: 100%;
+	height: 110px;
+	padding: 20px;
+	display: inline-block;
+	top: 0;
+	left: 0;
+}
+.nav h2 {
+	font-family: sans-serif;
+	font-weight: bold;
+	float: left;
+	transform: translateY(10px);
+	text-shadow: -19px -1px 20px #00A752A1;
+}
+.nav h2 img {
+	transform: translateY(4px);
+}
+.nav .links {
+	position: absolute;
+	width: 400px;
+	height: 60px;
+	left: 0;
+	right: 0;
+	margin: auto;
+	display: flex;
+	justify-content: space-around;
+    align-items: center;
+}
+.nav .link {
+	background: transparent;
+	color: #777;
+	font-size: 18px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+}
+.nav .GetStartedbtn {
+	padding: 15px;
+	color: #000;
+	border-radius: 25px;
+	background: transparent;
+	border: 2px solid #FBC893;
+	float: right;
+	transform: translateY(2.5px);
+	font-size: 18px;
+	cursor: pointer;
+	transition: all 0.3s;
+}
+.nav .GetStartedbtn:hover {
+	background: #FBC893;
+	color: #FFF;
+}
+.nav span {
+	position: absolute;
+	width: 23px;
+	height: 3px;
+	background: #74F1AB;
+	border-radius: 13px;
+	top: 45px;
+	left: 15px;
+	transform: translateX(50%);
+}
+.nav .links button:nth-of-type(1):hover ~ span {
+	transform: translateX(50%);
+}
+.nav .links button:nth-of-type(2):hover ~ span {
+	transform: translateX(87.5px);
+}
+.nav .links button:nth-of-type(3):hover ~ span {
+	transform: translateX(167px);
+}
+.nav .links button:nth-of-type(4):hover ~ span {
+	transform: translateX(245px);
+}
+.nav .links button:nth-of-type(5):hover ~ span {
+	transform: translateX(327px);
+}
+.nav hr {
+	margin-top: 80px;
+}
+
+
+.FrontPage {
+	position: fixed;
+	top: 110px;
+	padding: 20px;
+	width: 100%;
+	height: calc(100% - 110px);
+	background: transparent;
+}
+.FrontPage .left {
+	position: absolute;
+	width: 50%;
+	height: 100%;
+	left: 40px;
+}
+.FrontPage .left p {
+	font-size: 60px;
+	font-family: sans-serif;
+	font-weight: bold;
+	transform: translateY(50%);
+}
+.FrontPage .left p img {
+	transform: translate(57.5px, -20px);
+}
+.FrontPage .left p span:nth-of-type(1) {
+	position: absolute;
+	width: 180px;
+	height: 62px;
+	background: #FFCC9F;
+	transform: translateX(25px);
+	border-radius: 25px;
+}
+.FrontPage .left p span:nth-of-type(2) {
+	color: #F4934F;
+	z-index: 2;
+}
+.FrontPage .left p span:nth-of-type(3) {
+	position: absolute;
+	border: 8px solid #B2DAFE;
+	display: inline-block;
+	width: 160px;
+	height: 90px;
+	padding: 0.5em;
+	border-radius: 50%;
+	border-right-color: transparent;
+	border-bottom-color: transparent;
+	border-left-color: transparent;
+	transform: translate(-95%, 50%);
+	z-index: -1;
+}
+.FrontPage .left input {
+	position: fixed;
+	width: 480px;
+	padding: 14px;
+	padding-right: 130px;
+	font-size: 17px;
+	background: #FFF;
+	top: 520px;
+	border-radius: 25px;
+	border: none;
+	outline: none;
+	box-shadow: -2px 6px 20px 4px #B2DAFE66;
+}
+.FrontPage .left button {
+	position: fixed;
+	width: 120px;
+	padding: 14px;
+	font-size: 17px;
+	background: #F4934F;
+	color: #FFF;
+	top: 520px;
+	left: 400px;
+	border-radius: 25px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	box-shadow: 13px 5px 20px 0px #F4934F73;
+}
+.FrontPage .left button:hover {
+	text-shadow: 2px 1px 7px #ddd;
+}
+
+.FrontPage .join, .FrontPage .explore {
+	position: fixed;
+	width: 150px;
+	padding: 18px;
+	font-size: 19px;
+	color: #FFF;
+	top: 620px;
+	border-radius: 25px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+}
+.FrontPage .join {
+	left: 80px;
+	background: linear-gradient(to right, #FFB76B 0%, #FFA73D 30%, #FF7C00 60%, #FF7F04 100%);
+	box-shadow: 0px 8px 20px 0px #F4934F73;
+	background-size: 200% 200%;
+	background-position: 10% 0%;
+}
+.FrontPage .explore {
+	left: 305px;
+	background: linear-gradient(to right, #0cbaba, #380036);
+	box-shadow: -12px 7px 54px 0px #0CBABA73, 11px 2px 31px 0px #38003673;
+	background-size: 200% 200%;
+	background-position: 10% 0%;
+}
+.FrontPage .explore:hover, .FrontPage .join:hover {
+	background-position: 100% 100%;
+}
+.FrontPage .andbtns {
+	position: fixed;
+	font-size: 35px;
+	font-family: sans-serif;
+	color: #000;
+	top: 630px;
+	left: 255px;
+}
+
+.FrontPage .right {
+	position: absolute;
+	width: 50%;
+	height: 100%;
+	right: 40px;
+}
+.FrontPage .right .bg {
+	position: absolute;
+	z-index: -1;
+	width: 480px;
+	height: 550px;
+	background: #C0DDE5;
+	background: radial-gradient(circle farthest-corner at top right, #C0DDE5 20%, #ACD3E4 63%, #7CABBF 100%);
+	border-radius: 50%;
+	border-bottom-right-radius: 0px;
+	transform: translateX(50px);
+}
+
+.FrontPage .right #checkTrend {
+	position: absolute;
+	z-index: 8;
+	width: 250px;
+	height: 55px;
+	padding: 14px;
+	border: none;
+	outline: none;
+	background: #FFCC9F;
+	font-size: 21px;
+	font-family: sans-serif;
+	rotate: -90deg;
+	cursor: pointer;
+	transform: translate(-397.5px, 432px);
+}
+.FrontPage .right #checkTrend:hover {
+	border-bottom-left-radius: 25px;
+}
+.FrontPage .right #imgTrend {
+	position: absolute;
+	z-index: 8;
+	transform: translate(170px, 50px);
+}
+
+.FrontPage .right .arcsBg {
+	rotate: -90deg;
+	transform: translate(200px, 150px) scale(1.2);
+}
+.FrontPage .right .arcsBg div {
+	border: 2px solid #FFE4CC6B;
+	display: inline-block;
+	width: 550px;
+	height: 750px;
+	padding: 0.5em;
+	border-radius: 50%;
+	border-top-color: transparent;
+	border-right-color: transparent;
+	border-bottom-color: transparent;
+}
+.FrontPage .right .star {
+	position: absolute;
+	width: 20px;
+	height: 20px;
+}
+.FrontPage .right .star div {
+	position: absolute;
+	width: 0px;
+	height: 0px;
+	border-style: solid;
+	border-width: 10px 20px 10px 0;
+}
+.FrontPage .right .star div:nth-of-type(1) {
+	transform: rotate(0deg) translateX(-100%);
+}
+.FrontPage .right .star div:nth-of-type(2) {
+	transform: rotate(90deg) translateX(-100%);
+}
+.FrontPage .right .star div:nth-of-type(3) {
+	transform: rotate(-90deg) translateX(-100%);
+}
+.FrontPage .right .star div:nth-of-type(4) {
+	transform: rotate(180deg) translateX(-100%);
+}
+
+.FrontPage .right .TrendPlant {
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	background: #FFCC9F;
+	z-index: 3;
+	transform: translate(50px, -700px);
+}
+.FrontPage .right .TrendPlant h2 {
+	position: absolute;
+	font-weight: bold;
+	font-family: sans-serif;
+	width: 50px;
+	height: 50px;
+	padding: 10px;
+	margin: auto;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	transform: scale(1.6) rotate(-40deg);
+	border-radius: 50%;
+	border: 3px solid #000;
+	border-top-color: transparent;
+}
+.FrontPage .right .TrendPlant p {
+	font-size: 16px;
+	font-family: sans-serif;
+	font-weight: 900;
+}
+.FrontPage .right .TrendPlant p span {
+	position: absolute;
+	display: inline;
+}
+
+.FrontPage .right .TrendPlant p {
+	rotate: -40deg;
+}
+.FrontPage .right .TrendPlant p span:nth-of-type(1) {
+	transform: translate(-10px, -5px) rotate(-30deg);
+}
+.FrontPage .right .TrendPlant p span:nth-of-type(2) {
+	transform: translate(0px, -10px) rotate(-12deg);
+}
+.FrontPage .right .TrendPlant p span:nth-of-type(3) {
+	transform: translate(9px, -13px) rotate(4deg);
+}
+.FrontPage .right .TrendPlant p span:nth-of-type(4) {
+	transform: translate(21px, -11px) rotate(14deg);
+}
+.FrontPage .right .TrendPlant p span:nth-of-type(5) {
+	transform: translate(33px, -7px) rotate(27deg);
+}
+
+
+.getStarted {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	z-index: 101;
+	background: #FFF;
+	display: flex;
+	align-items: center;
+}
+.getStarted .bg, .getStarted .bg1 {
+	position: fixed;
+	width: 450px;
+	height: 100%;
+	left: 0px;
+	z-index: 2;
+}
+.getStarted .bg {
+	background-image: url(' ./img/signup.jpg ');
+	background-position: 0% 100%;
+	filter: blur(7px);
+}
+.getStarted .bg1 {
+	background: linear-gradient(to bottom right, #ffffffde 0%, #ffffff3d 25%, #ffffff61 50%, #ffffff1f 75%, #ffffffbd 100%);
+}
+.getStarted .bg1 h2 {
+	font-weight: bold;
+	font-family: sans-serif;
+	margin-left: 22px;
+	margin-top: 22px;
+	color: #000;
+}
+.getStarted .bg1 h1 {
+	font-weight: bold;
+	font-family: sans-serif;
+	font-size: 32px;
+	margin-top: 50px;
+	margin-left: 22px;
+	color: #000;
+}
+.getStarted .bg1 p {
+	font-weight: bold;
+	font-family: sans-serif;
+	font-size: 17px;
+	margin-left: 22px;
+	margin-top: 22px;
+	color: #333;
+	line-height: 22px;
+	letter-spacing: 2px;
+}
+.getStarted .bg1 .ToLogin, .getStarted .bg1 .ToSignup {
+	position: absolute;
+	width: 100%;
+	background: rgba(0, 0, 0, 0.5);
+	padding-bottom: 100px;
+	box-sizing: unset;
+	padding-top: 22px;
+	bottom: 0;
+}
+.getStarted .bg1 .ToSignup { display: none; }
+.getStarted .bg1 .ToLogin button, .getStarted .bg1 .ToSignup button {
+	position: absolute;
+	width: 150px;
+	padding: 14px;
+	font-size: 19px;
+	color: #FFF;
+	border-radius: 7px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	background: linear-gradient(to right, #0cbaba, #380036);
+	box-shadow: -12px 7px 54px 0px #0CBABA73, 11px 2px 31px 0px #38003673;
+	background-size: 200% 200%;
+	background-position: 10% 0%;
+	left: 0;
+	right: 0;
+	margin: auto;
+	margin-top: 27px;
+}
+.getStarted .bg1 .ToLogin button:hover, .getStarted .bg1 .ToSignup button:hover {
+	background-position: 100% 100%;
+}
+.getStarted .bg1 .review {
+	position: absolute;
+	width: 380px;
+	height: 200px;
+	background: rgba(255, 255, 255, 0.7);
+	left: 0;
+	right: 0;
+	margin: auto;
+	margin-top: 32px;
+	border-radius: 25px;
+}
+.getStarted .bg1 .review span {
+	font-size: 24px;
+	letter-spacing: 0px;
+	font-weight: bold;
+	font-family: sans-serif;
+	margin-left: 22px;
+	color: #333;
+	line-height: 22px;
+}
+.getStarted .bg1 .review p {}
+
+.getStarted .signUp, .getStarted .logIn {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background: #FFF;
+}
+.getStarted .signUp .header {
+	position: absolute;
+	width: 100%;
+	height: 70px;
+	top: 0;
+	left: 0;
+	background: #FFF;
+	border-radius: 50%;
+	z-index: 1;
+}
+.getStarted .signUp .header .circle {
+	position: absolute;
+	bottom: 0;
+	left: 490px;
+	width: 20px;
+	height: 20px;
+	background: transparent;
+	border: 5px solid transparent;
+	border-radius: 50%;
+}
+.getStarted .signUp .header .circle.pend {
+	background: #d4ddeb;
+	border: 5px solid transparent;
+}
+.getStarted .signUp .header .circle.active {
+	background: transparent;
+	border: 5px solid #158f9b;
+}
+.getStarted .signUp .header .circle.done {
+	background: #158f9b;
+	border: 5px solid transparent;
+}
+.getStarted .signUp .header .line {
+	position: absolute;
+	bottom: 7.5px;
+	left: 530px;
+	width: 150px;
+	height: 5px;
+	background: transparent;
+	border-radius: 15px;
+}
+.getStarted .signUp .header .line.pend {
+	background: #d4ddeb;
+}
+.getStarted .signUp .header .line.done {
+	background: #158f9b;
+}
+.getStarted .signUp .body, .getStarted .logIn .body {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	background: #FFF;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+.getStarted .signUp .body { padding-left: 552px; padding-right: 95px; }
+.getStarted .logIn .body { padding-left: 552px; padding-right: 95px; opacity: 0; visibility: hidden; }
+
+.getStarted .signUp .body h1, .getStarted .logIn .body h1 {
+	font-family: sans-serif;
+}
+.getStarted .signUp .body form, .getStarted .logIn .body form {
+	margin-top: 4px;
+}
+.getStarted .signUp .body form label, .getStarted .logIn .body form label {
+	position: absolute;
+	color: #9094a0;
+	font-family: sans-serif;
+}
+.getStarted .signUp .body form div:nth-of-type(1) label:nth-of-type(1),
+.getStarted .logIn .body form div:nth-of-type(1) label:nth-of-type(1) {
+	transform: translate(22px, -15px);
+}
+.getStarted .signUp .body form div:nth-of-type(1) label:nth-of-type(2),
+.getStarted .logIn .body form div:nth-of-type(1) label:nth-of-type(2) {
+	transform: translate(270px, -15px);
+}
+.getStarted .signUp .body form div:nth-of-type(2) label:nth-of-type(1),
+.getStarted .logIn .body form div:nth-of-type(2) label:nth-of-type(1) {
+	transform: translate(20px, 18px);
+}
+.getStarted .signUp .body form div:nth-of-type(2) label:nth-of-type(2) {
+	transform: translate(20px, 222px);
+}
+
+.getStarted .logIn .body form div:nth-of-type(2) label:nth-of-type(2) {
+	transform: translate(20px, 141px);
+}
+
+.getStarted .signUp .body form input,
+.getStarted .signUp .body form button,
+.getStarted .logIn .body form input,
+.getStarted .logIn .body form button {
+	border: 2px solid #dde4ee;
+	outline: none;
+	font-size: 18px;
+	padding: 9px;
+	border-radius: 7px;
+	margin-left: 10px;
+	margin-top: 40px;
+	appearance: none;
+	cursor: inherit;
+	line-height: inherit;
+}
+.getStarted .signUp .body form input:focus,
+.getStarted .logIn .body form input:focus {
+	border-color: #005eff;
+}
+
+.getStarted .signUp .body form .select {display:flex;flex-direction:column;align-items:stretch;}
+.getStarted .signUp .body form .select .selector {
+	border: 2px solid #dde4ee;
+	outline: none;
+	font-size: 18px;
+	padding: 9px;
+	border-radius: 7px;
+	margin-left: 10px;
+	appearance: none;
+	cursor: inherit;
+	line-height: inherit;
+	background: transparent;
+	cursor: pointer;
+	text-align: left;
+	height: 43px;
+	font-family: sans-serif;
+}
+.getStarted .signUp .body form .select p {
+	color: #9094a0;
+	font-size: 17px;
+	transform: translate(20px, -5px);
+	font-family: sans-serif;
+}
+.getStarted .signUp .body form .select .selector::before {
+	content: '▼';
+	width: 0px;
+	height: 0px;
+	color: #C0DDE5;
+	border-style: solid;
+	border-width: 17.3px 10px 0 10px;
+	border-color: transparent transparent transparent transparent;
+}
+.getStarted .signUp .body form .select #options {
+	position: absolute;
+	overflow: auto;
+	display: flex;
+	flex-direction:column;
+	align-items:stretch;
+	padding-left: 9px;
+	transform: translate(5px, 63px);
+	z-index: 1;
+}
+.getStarted .signUp .body form .select #options::-webkit-scrollbar {
+	width: 7px;
+}
+.getStarted .signUp .body form .select #options::-webkit-scrollbar-track {
+	border-radius: 10px;
+	background: transparent;
+}
+.getStarted .signUp .body form .select #options::-webkit-scrollbar-thumb {
+	background: grey; 
+	border-radius: 10px;
+	transition: all 0.3s;
+}
+.getStarted .signUp .body form .select #options::-webkit-scrollbar-thumb:hover {
+	background: darkgrey; 
+}
+.getStarted .signUp .body form .select #options div {
+	border: none;
+	outline: none;
+	background: #FFF;
+	font-size: 18px;
+	text-align: left;
+	padding: 7px;
+	padding-left: 20px;
+	border-left: 1px solid #dde4ee;
+	border-right: 1px solid #dde4ee;
+	font-family: sans-serif;
+}
+.getStarted .signUp .body form .select #options div:last-child {
+	border-bottom: 1px solid #dde4ee;
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+}
+.getStarted .signUp .body form .select #options div:hover {
+	background: #eee;
+}
+.getStarted .signUp .body form .select #options.hide {
+	height: 0px;
+}
+.getStarted .signUp .body form .select #options.show {
+	height: 300px;
+}
+
+.getStarted .signUp .body form button,
+.getStarted .logIn .body form button {
+	cursor: pointer;
+	border-width: 0px;
+	padding: 14px;
+	background: linear-gradient(to right, #FFB76B 0%, #FFA73D 30%, #FF7C00 60%, #FF7F04 100%);
+	box-shadow: 0px 8px 20px 0px #F4934F73;
+	background-size: 200% 200%;
+	background-position: 10% 0%;
+	color: #FFF;
+}
+.getStarted .signUp .body form button:hover,
+.getStarted .logIn .body form button:hover {
+	background-position: 100% 100%;
+}
+.getStarted .signUp .body form button .checkFormData,
+.getStarted .logIn .body form button .checkFormData {
+	position: absolute;
+	width: 30px;
+	height: 30px;
+	background: transparent;
+	border-radius: 50%;
+	border: 2px solid #f3f3f3;
+	border-top-color: #3498db;
+	transform: translate(426px, -26px) rotate(0deg);
+	animation: loadcheckbtn 0.5s linear infinite;
+	display: none;
+}
+@keyframes loadcheckbtn {
+	0% {
+		transform: translate(426px, -26px) rotate(0deg);
+	}
+	100% {
+		transform: translate(426px, -26px) rotate(360deg);
+	}
+}
+
+.getStarted .logIn .body form div:nth-of-type(2) .forgetPsw {
+	font-family: sans-serif;
+	cursor: pointer;
+	text-align: right;
+	transform: translateY(-5px);
+}
+.getStarted .logIn .body form div:nth-of-type(2) .forgetPsw::before {
+	content: '';
+	position: absolute;
+	width: 0px;
+	height: 2px;
+	border-radius: 17px;
+	background: #000;
+	transform: translateY(18px);
+	transition: width 0.2s;
+}
+.getStarted .logIn .body form div:nth-of-type(2) .forgetPsw:hover::before {
+	width: 125px;
+}
+
+.getStarted .signUp .body form .checkbox,
+.getStarted .logIn .body form .checkbox {
+	width: 25px;
+	height: 25px;
+	border: 4px solid #ccc;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transform: translateX(25px);
+}
+.getStarted .logIn .body form .checkbox {
+	transform: translate(25px, -25px);
+}
+.getStarted .signUp .body form .checkbox .bubble,
+.getStarted .logIn .body form .checkbox .bubble {
+	position: absolute;
+	width: 0px;
+	height: 0px;
+	border-radius: 50%;
+	background: #6EE8D9;
+	transition: all 0.9s;
+}
+.getStarted .signUp .body form .checkbox .showBubble:nth-of-type(1),
+.getStarted .logIn .body form .checkbox .showBubble:nth-of-type(1) {
+	transform: translate(25px, 0px);
+}
+.getStarted .signUp .body form .checkbox .showBubble:nth-of-type(2),
+.getStarted .logIn .body form .checkbox .showBubble:nth-of-type(2) {
+	transform: translate(18px, 18px);
+}
+.getStarted .signUp .body form .checkbox .showBubble:nth-of-type(3),
+.getStarted .logIn .body form .checkbox .showBubble:nth-of-type(3) {
+	transform: translate(0px, 25px);
+}
+.getStarted .signUp .body form .checkbox .showBubble:nth-of-type(4),
+.getStarted .logIn .body form .checkbox .showBubble:nth-of-type(4) {
+	transform: translate(-18px, 18px);
+}
+.getStarted .signUp .body form .checkbox .showBubble:nth-of-type(5),
+.getStarted .logIn .body form .checkbox .showBubble:nth-of-type(5) {
+	transform: translate(-25px, 0px);
+}
+.getStarted .signUp .body form .checkbox .showBubble:nth-of-type(6),
+.getStarted .logIn .body form .checkbox .showBubble:nth-of-type(6) {
+	transform: translate(-18px, -18px);
+}
+.getStarted .signUp .body form .checkbox .showBubble:nth-of-type(7),
+.getStarted .logIn .body form .checkbox .showBubble:nth-of-type(7) {
+	transform: translate(0px, -25px);
+}
+.getStarted .signUp .body form .checkbox .showBubble:nth-of-type(8),
+.getStarted .logIn .body form .checkbox .showBubble:nth-of-type(8) {
+	transform: translate(18px, -18px);
+}
+
+.getStarted .signUp .body form .checkbox .checked1,
+.getStarted .logIn .body form .checkbox .checked1 {
+	position: absolute;
+	width: 11px;
+	height: 4px;
+	background: linear-gradient(to bottom right, #6EE8D9 10%, #15CBF2 66%, #04B7FE 100%);
+	border-top-left-radius: 14px;
+	border-bottom-left-radius: 14px;
+	transform: rotate(35deg) translate(-4px, 5px);
+	opacity: 0;
+}
+.getStarted .signUp .body form .checkbox .checked2,
+.getStarted .logIn .body form .checkbox .checked2 {
+	position: absolute;
+	width: 18px;
+	height: 4px;
+	background: linear-gradient(to bottom right, #6EE8D9 10%, #15CBF2 66%, #04B7FE 100%);
+	border-top-right-radius: 14px;
+	border-bottom-right-radius: 14px;
+	transform: rotate(-45deg) translate(4px, 2px);
+	opacity: 0;
+}
+.getStarted .signUp .body form .checkbox .checked3,
+.getStarted .logIn .body form .checkbox .checked3 {
+	position: absolute;
+	width: 80%;
+	height: 80%;
+	background: #f4fbff;
+	border-radius: 50px;
+	transform: translate(5px, 0px);
+	opacity: 0;
+}
+.getStarted .signUp .body form .checkbox p,
+.getStarted .logIn .body form .checkbox p {
+	position: absolute;
+	font-size: 13px;
+	font-family: sans-serif;
+	transform: translateX(calc(50% + 19px));
+	width: 242px;
+}
+.getStarted .logIn .body form .checkbox p { 
+	font-size: 17px !important;
+}
+
+.getStarted .signUp .body form .checkbox p span,
+.getStarted .logIn .body form .checkbox p span {
+	color: #2478ea;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.getStarted #leavesAndBird {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	z-index: -1;
+	display: none;
+}
+.getStarted #leavesAndBird .leaves {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	pointer-events: none;
+}
+.getStarted #leavesAndBird .leaves2 {
+	transform: scale(0.8) rotateY(180deg);
+}
+.getStarted #leavesAndBird .leaves div {
+	position: absolute;
+}
+.getStarted #leavesAndBird .leaves div:nth-child(1) {
+	left: 20%;
+	animation: fallenLeaf 0.5s linear forwards;
+	animation-delay: 0.37s;
+}
+.getStarted #leavesAndBird .leaves div:nth-child(2) {
+	left: 50%;
+	animation: fallenLeaf 0.66s linear forwards;
+	animation-delay: 0.44s;
+}
+.getStarted #leavesAndBird .leaves div:nth-child(3) {
+	left: 70%;
+	animation: fallenLeaf 0.66s linear forwards;
+	animation-delay: 0.6s;
+}
+.getStarted #leavesAndBird .leaves div:nth-child(4) {
+	left: 0%;
+	animation: fallenLeaf 0.5s linear forwards;
+	animation-delay: 0.44s;
+}
+.getStarted #leavesAndBird .leaves div:nth-child(5) {
+	left: 85%;
+	animation: fallenLeaf 0.6s linear forwards;
+	animation-delay: 0.27s;
+}
+.getStarted #leavesAndBird .leaves div:nth-child(6) {
+	left: 60%;
+	animation: fallenLeaf 0.6s linear forwards;
+	animation-delay: 0.6s;
+}
+@keyframes fallenLeaf {
+	0% {
+		top: -40%;
+		opacity: 0;
+		transform: translateX(20px) rotate(0deg);
+	}
+	10% {
+		opacity: 1;
+	}
+	20% {
+		transform: translateX(-20px) rotate(45deg);
+	}
+	40% {
+		transform: translateX(-20px) rotate(90deg);
+	}
+	60% {
+		transform: translateX(20px) rotate(180deg);
+	}
+	80% {
+		transform: translateX(-20px) rotate(180deg);
+	}
+	100% {
+		top: 120%;
+		transform: translateX(-20px) rotate(225deg);
+	}
+}
+
+.getStarted #forgetPassword {
+	position: absolute;
+	width: 400px;
+	height: 450px;
+	left: 0;
+	right: 0;
+	margin: auto;
+	z-index: -2;
+	overflow: hidden;
+	font-family: sans-serif;
+}
+.getStarted #forgetPassword .interactor {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	transition: all 0.3s;
+}
+.getStarted #forgetPassword .interactor p:nth-of-type(1) img {
+	padding: 9px;
+	border: 1px solid #f0f0f0;
+	border-radius: 10px;
+}
+.getStarted #forgetPassword .interactor p:nth-of-type(2) {
+	text-align: center;
+	color: #9094A0;
+	margin-top: 12px;
+}
+.getStarted #forgetPassword .firstInteract input {
+	border: 2px solid #dde4ee;
+	outline: none;
+	font-size: 18px;
+	padding: 9px;
+	border-radius: 7px;
+	margin-top: 40px;
+	appearance: none;
+	cursor: inherit;
+	line-height: inherit;
+	width: 100%;
+}
+.getStarted #forgetPassword .firstInteract input:focus {
+	border-color: #005eff;
+}
+.getStarted #forgetPassword .firstInteract label {
+	position: absolute;
+    transform: translate(7px, 18px);
+    font-weight: 600;
+	font-size: 15px;
+}
+.getStarted #forgetPassword .interactor button {
+	border: 2px solid #165ef0;
+	outline: none;
+	font-size: 18px;
+	padding: 9px;
+	border-radius: 7px;
+	appearance: none;
+	cursor: inherit;
+	background: #165ef0;
+	color: #FFF;
+	line-height: inherit;
+	width: 100%;
+	cursor: pointer;
+}
+.getStarted #forgetPassword .interactor button:hover {
+	background: #1a5dce;
+}
+.getStarted #forgetPassword .interactor span {
+	color: #9094A0;
+	position: absolute;
+	cursor: pointer;
+	left: 0;
+	right: 0;
+	margin-left: auto;
+	margin-right: auto;
+	width: 125px;
+}
+
+.getStarted #forgetPassword .secondInteract input {
+	border: 2px solid rgb(221, 228, 238);
+    outline: none;
+    font-size: 51px;
+    padding: 13px;
+    border-radius: 7px;
+    appearance: none;
+    cursor: inherit;
+    line-height: inherit;
+    height: 97px;
+    width: 76px;
+    text-align: center;
+    margin-left: 19px;
+}
+
+.getStarted #forgetPassword .interactor p:nth-of-type(3) {
+	text-align: center;
+    color: #9094A0;
+    margin-top: 12px;
+}
+.getStarted #forgetPassword .interactor p:nth-of-type(3) b {
+	color: #2478ea;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.getStarted #forgetPassword .interactor p:nth-of-type(3) b:hover {
+	color: #2478ea;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.getStarted #forgetPassword .thirdInteract label:nth-of-type(1) {
+	position: absolute;
+	transform: translate(7px, -2px);
+	font-weight: 600;
+	font-size: 15px;
+}
+.getStarted #forgetPassword .thirdInteract label:nth-of-type(2) {
+	position: absolute;
+	transform: translate(7px, 18px);
+	font-weight: 600;
+	font-size: 15px;
+}
+.getStarted #forgetPassword .thirdInteract input {
+	border: 2px solid #dde4ee;
+	outline: none;
+	font-size: 18px;
+	padding: 9px;
+	border-radius: 7px;
+	appearance: none;
+	cursor: inherit;
+	line-height: inherit;
+	width: 100%;
+}
+.getStarted #forgetPassword .thirdInteract input:nth-of-type(1) { margin-top:20px; }
+.getStarted #forgetPassword .thirdInteract input:nth-of-type(2) { margin-top:40px; }
+
+.getStarted .signUp .body .Alert {
+	position: absolute;
+	padding: 10px;
+	color: red;
+	background-color: #f8c7ca;
+	text-align: center;
+	border-radius: 15px;
+	border: 1px solid red;
+	display: none;
+	opacity: 0;
+	z-index: 2;
+	transition: all 0.2s;
+}
+.getStarted .signUp .body .emailAlert {
+	transform: translate(-107px,-10px);
+}
+.getStarted .signUp .body .passwordAlert {
+	transform: translate(-110px, 198px);
+}
+.getStarted .signUp .body .nameAlert {
+	transform: translate(-151px, -109px);
+}
+.getStarted .signUp .body .snameAlert {
+	transform: translate(99px, -109px);
+}
+
+.getStarted .signUp .body .Alert::before {
+	content: '';
+	width: 0px;
+	height: 0px;
+	border-style: solid;
+	border-width: 0 7.5px 15px 7.5px;
+	border-color: transparent transparent #F8C7CA transparent;
+	transform: translateY(-164%);
+	position: absolute;
+}
+	</style>
+</head>
+<body>
+	<div class="nav">
+		<h2><img src="./img/logo.png" width="27px" alt="LOGO"> Plantit</h2>
+		
+		<div class="links">
+			<button class="link">Home</button>
+			<button class="link">Shop</button>
+			<button class="link">Gallery</button>
+			<button class="link">Blog</button>
+			<button class="link">Contact</button>
+			<span></span>
+		</div>
+		
+		<button class="GetStartedbtn">Get Started</button>
+		
+		<hr />
+	</div>
+	
+	<div class="FrontPage">
+		<div class="left">
+			<p>Plants <span><img src="./img/plant.png" width="65px" alt=":)"></span><br>are the essence<br>of our <span>lives</span><span></span></p>
+			<h3 style="font-family:sans-serif;color:#CCC;transform:translateY(120px);"><i>Plants reduce stress and improve your mood, so they<br>are ideal for use at home and in the workplace.</i></h3>
+			<input placeholder="What are you looking for?">
+			<button>Search</button>
+		</div>
+		<button class="join">Join Us</button><span class="andbtns"> & </span><button class="explore">Explore</button>
+		<div class="right">
+			<div class="bg"></div>
+			
+			<button id="checkTrend">Opuntia Microdasys →</button>
+			<img id="imgTrend" src="./img/OpuntiaMicrodasys.png" alt="☺" width="250px">
+			
+			<div class="arcsBg">
+				<div>
+					<div>
+						<div>
+							<div>
+								<div>
+									<div>
+										<div>
+											<div>
+												<div>
+													<div></div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="star" style="transform: translate(500px, -800px);background: #FFCC9F;">
+				<div style="border-color: transparent #FFCC9F transparent transparent;"></div>
+				<div style="border-color: transparent #FFCC9F transparent transparent;"></div>
+				<div style="border-color: transparent #FFCC9F transparent transparent;"></div>
+				<div style="border-color: transparent #FFCC9F transparent transparent;"></div>
+			</div>
+			<div class="star" style="transform: translate(100px, -300px);background: #ACD3E4;">
+				<div style="border-color: transparent #ACD3E4 transparent transparent;"></div>
+				<div style="border-color: transparent #ACD3E4 transparent transparent;"></div>
+				<div style="border-color: transparent #ACD3E4 transparent transparent;"></div>
+				<div style="border-color: transparent #ACD3E4 transparent transparent;"></div>
+			</div>
+			<div class="TrendPlant">
+				<h2>#1</h2>
+				<p>
+				   <span>T</span><span>r</span><span>e</span><span>n</span><span>d</span>
+				</p>
+			</div>
+		</div>
+	</div>
+	
+	
+	<div class="getStarted"> 
+		<div class="bg" id="signBG"></div>
+		<div class="bg1" id="signBG1">
+			<h2><img src="./img/logo.png" width="27px" alt="LOGO"> Plantit</h2>
+			<h1 id="SignUpInspiration">Let’s grow together!</h1>
+			<p id="SignUpInspirationP">Join our community of plant lovers.<br>Sign up now and receive personalized plant care tips, exclusive discounts, and more.</p>
+			
+			<div class="ToLogin" id="toLogin">
+				<h1 id="toLoginH" style="text-align:center;margin-left:0px;font-size:35px;margin-top:0px;color:#FFF;">ALREADY A MEMBER?</h1>
+				<p id="toLoginP" style="text-align:center;margin-left:0px;font-size:19px;color:#DDD;">Glad to see you again, Log-in to your account!</p>
+				<button onclick="transLoginSignup(true, this)">Log-in</button>
+			</div>
+			<div class="ToSignup" id="toSignup">
+				<h1 id="toSignupH" style="text-align:center;margin-left:0px;font-size:35px;margin-top:0px;color:#FFF;">NEW TO PLANTIT?</h1>
+				<p id="toSignupP" style="text-align:center;margin-left:0px;font-size:19px;color:#DDD;">Sign-up and discover a great amount of new plants!</p>
+				<button onclick="transLoginSignup(false, this)">Sign-Up</button>
+			</div>
+			
+			<div class="review" id="SignUpRev">
+				<br><span>“I absolutely love this site!”</span><br><p>The tips have been so helpful and my plants are thriving!</p>
+				<img style="margin-top:22px;margin-left:22px;display:inline;" src="./img/profile.png" width="40px"><h3 style="position:absolute;font-family:sans-serif;bottom:40px;left:70px;">Someone</h3>
+				<h3 style="position:absolute;font-family:sans-serif;bottom:40px;right:22px;color:yellow;">⭐⭐⭐⭐⭐</h3>
+			</div>
+		</div>
+		
+		<div class="signUp" id="signUpForm">
+			<div class="header">
+				<span class="circle active"></span>
+				<span class="line pend"></span>
+				<span class="circle pend" style="transform: translateX(210px);"></span>
+				<span class="line pend" style="transform: translateX(210px);"></span>
+				<span class="circle pend" style="transform: translateX(420px);"></span>
+				<span class="line pend" style="transform: translateX(420px);"></span>
+				<span class="circle pend" style="transform: translateX(630px);"></span>
+			</div>
+			<div class="body">
+				<h1>Let’s get started</h1>
+				<div class="Alert emailAlert">Please enter a valid email address.</div>
+				<div class="Alert passwordAlert">Must be at least 8 characters.</div>
+				<div class="Alert nameAlert">This field is required.</div>
+				<div class="Alert snameAlert">This field is required.</div>
+				<form>
+					<div style="display:flex;justify-content:space-between;align-items:center;">
+						<label for="firstName" id="firstNameLabel">First Name</label><input type="text" id="firstName" name="firstName" style="width:50%;" onkeyup="fillSignUp(this, document.getElementById('firstNameLabel'))">
+						<label for="secondName" id="secondNameLabel">Second Name</label><input type="text" id="secondName" name="secondName" style="width:50%;" onkeyup="fillSignUp(this,  document.getElementById('secondNameLabel'))">
+					</div>
+					<br>
+					<div style="display:flex;flex-direction:column;align-items:stretch;">
+						<label for="SEmail" id="SEmailLabel">Email</label><input type="email" id="SEmail" name="email" onkeyup="validateEmail(this, document.getElementById('SEmailLabel'))" style="padding-left: 40px;"><img src="./img/envelope.png" width="24px" style="transform:translate(20px, -34px)">
+						<br>
+						<div class="select">
+							<p id="CountriesLabel">Country of residence</p>
+							<div class="selector" id="countriesShowerbtn" onclick="showOptionsCountries()"></div>
+							<div id="options" class="hide">
+								<div onclick="setCountry(this)">Afghanistan</div>
+								<div onclick="setCountry(this)">Åland Islands</div>
+								<div onclick="setCountry(this)">Albania</div>
+								<div onclick="setCountry(this)">Algeria</div>
+								<div onclick="setCountry(this)">American Samoa</div>
+								<div onclick="setCountry(this)">Andorra</div>
+								<div onclick="setCountry(this)">Angola</div>
+								<div onclick="setCountry(this)">Anguilla</div>
+								<div onclick="setCountry(this)">Antarctica</div>
+								<div onclick="setCountry(this)">Antigua and Barbuda</div>
+								<div onclick="setCountry(this)">Argentina</div>
+								<div onclick="setCountry(this)">Armenia</div>
+								<div onclick="setCountry(this)">Aruba</div>
+								<div onclick="setCountry(this)">Australia</div>
+								<div onclick="setCountry(this)">Austria</div>
+								<div onclick="setCountry(this)">Azerbaijan</div>
+								<div onclick="setCountry(this)">Bahamas</div>
+								<div onclick="setCountry(this)">Bahrain</div>
+								<div onclick="setCountry(this)">Bangladesh</div>
+								<div onclick="setCountry(this)">Barbados</div>
+								<div onclick="setCountry(this)">Belarus</div>
+								<div onclick="setCountry(this)">Belgium</div>
+								<div onclick="setCountry(this)">Belize</div>
+								<div onclick="setCountry(this)">Benin</div>
+								<div onclick="setCountry(this)">Bermuda</div>
+								<div onclick="setCountry(this)">Bhutan</div>
+								<div onclick="setCountry(this)">Bolivia (Plurinational State of)</div>
+								<div onclick="setCountry(this)">Bosnia and Herzegovina</div>
+								<div onclick="setCountry(this)">Botswana</div>
+								<div onclick="setCountry(this)">Bouvet Island</div>
+								<div onclick="setCountry(this)">Brazil</div>
+								<div onclick="setCountry(this)">British Indian Ocean Territory</div>
+								<div onclick="setCountry(this)">Brunei Darussalam</div>
+								<div onclick="setCountry(this)">Bulgaria</div>
+								<div onclick="setCountry(this)">Burkina Faso</div>
+								<div onclick="setCountry(this)">Burundi</div>
+								<div onclick="setCountry(this)">Cabo Verde</div>
+								<div onclick="setCountry(this)">Cambodia</div>
+								<div onclick="setCountry(this)">Cameroon</div>
+								<div onclick="setCountry(this)">Canada</div>
+								<div onclick="setCountry(this)">Caribbean Netherlands</div>
+								<div onclick="setCountry(this)">Cayman Islands</div>
+								<div onclick="setCountry(this)">Central African Republic</div>
+								<div onclick="setCountry(this)">Chad</div>
+								<div onclick="setCountry(this)">Chile</div>
+								<div onclick="setCountry(this)">China</div>
+								<div onclick="setCountry(this)">Christmas Island</div>
+								<div onclick="setCountry(this)">Cocos (Keeling) Islands</div>
+								<div onclick="setCountry(this)">Colombia</div>
+								<div onclick="setCountry(this)">Comoros</div>
+								<div onclick="setCountry(this)">Congo</div>
+								<div onclick="setCountry(this)">Congo, Democratic Republic of the</div>
+								<div onclick="setCountry(this)">Cook Islands</div>
+								<div onclick="setCountry(this)">Costa Rica</div>
+								<div onclick="setCountry(this)">Croatia</div>
+								<div onclick="setCountry(this)">Cuba</div>
+								<div onclick="setCountry(this)">Curaçao</div>
+								<div onclick="setCountry(this)">Cyprus</div>
+								<div onclick="setCountry(this)">Czech Republic</div>
+								<div onclick="setCountry(this)">Côte d'Ivoire</div>
+								<div onclick="setCountry(this)">Denmark</div>
+								<div onclick="setCountry(this)">Djibouti</div>
+								<div onclick="setCountry(this)">Dominica</div>
+								<div onclick="setCountry(this)">Dominican Republic</div>
+								<div onclick="setCountry(this)">Ecuador</div>
+								<div onclick="setCountry(this)">Egypt</div>
+								<div onclick="setCountry(this)">El Salvador</div>
+								<div onclick="setCountry(this)">Equatorial Guinea</div>
+								<div onclick="setCountry(this)">Eritrea</div>
+								<div onclick="setCountry(this)">Estonia</div>
+								<div onclick="setCountry(this)">Eswatini (Swaziland)</div>
+								<div onclick="setCountry(this)">Ethiopia</div>
+								<div onclick="setCountry(this)">Falkland Islands (Malvinas)</div>
+								<div onclick="setCountry(this)">Faroe Islands</div>
+								<div onclick="setCountry(this)">Fiji</div>
+								<div onclick="setCountry(this)">Finland</div>
+								<div onclick="setCountry(this)">France</div>
+								<div onclick="setCountry(this)">French Guiana</div>
+								<div onclick="setCountry(this)">French Polynesia</div>
+								<div onclick="setCountry(this)">French Southern Territories</div>
+								<div onclick="setCountry(this)">Gabon</div>
+								<div onclick="setCountry(this)">Gambia</div>
+								<div onclick="setCountry(this)">Georgia</div>
+								<div onclick="setCountry(this)">Germany</div>
+								<div onclick="setCountry(this)">Ghana</div>
+								<div onclick="setCountry(this)">Gibraltar</div>
+								<div onclick="setCountry(this)">Greece</div>
+								<div onclick="setCountry(this)">Greenland</div>
+								<div onclick="setCountry(this)">Grenada</div>
+								<div onclick="setCountry(this)">Guadeloupe</div>
+								<div onclick="setCountry(this)">Guam</div>
+								<div onclick="setCountry(this)">Guatemala</div>
+								<div onclick="setCountry(this)">Guernsey</div>
+								<div onclick="setCountry(this)">Guinea</div>
+								<div onclick="setCountry(this)">Guinea-Bissau</div>
+								<div onclick="setCountry(this)">Guyana</div>
+								<div onclick="setCountry(this)">Haiti</div>
+								<div onclick="setCountry(this)">Heard Island and Mcdonald Islands</div>
+								<div onclick="setCountry(this)">Honduras</div>
+								<div onclick="setCountry(this)">Hong Kong</div>
+								<div onclick="setCountry(this)">Hungary</div>
+								<div onclick="setCountry(this)">Iceland</div>
+								<div onclick="setCountry(this)">India</div>
+								<div onclick="setCountry(this)">Indonesia</div>
+								<div onclick="setCountry(this)">Iran</div>
+								<div onclick="setCountry(this)">Iraq</div>
+								<div onclick="setCountry(this)">Ireland</div>
+								<div onclick="setCountry(this)">Isle of Man</div>
+								<div onclick="setCountry(this)">Italy</div>
+								<div onclick="setCountry(this)">Jamaica</div>
+								<div onclick="setCountry(this)">Japan</div>
+								<div onclick="setCountry(this)">Jersey</div>
+								<div onclick="setCountry(this)">Jordan</div>
+								<div onclick="setCountry(this)">Kazakhstan</div>
+								<div onclick="setCountry(this)">Kenya</div>
+								<div onclick="setCountry(this)">Kiribati</div>
+								<div onclick="setCountry(this)">Korea, North</div>
+								<div onclick="setCountry(this)">Korea, South</div>
+								<div onclick="setCountry(this)">Kosovo</div>
+								<div onclick="setCountry(this)">Kuwait</div>
+								<div onclick="setCountry(this)">Kyrgyzstan</div>
+								<div onclick="setCountry(this)">Lao People's Democratic Republic</div>
+								<div onclick="setCountry(this)">Latvia</div>
+								<div onclick="setCountry(this)">Lebanon</div>
+								<div onclick="setCountry(this)">Lesotho</div>
+								<div onclick="setCountry(this)">Liberia</div>
+								<div onclick="setCountry(this)">Libya</div>
+								<div onclick="setCountry(this)">Liechtenstein</div>
+								<div onclick="setCountry(this)">Lithuania</div>
+								<div onclick="setCountry(this)">Luxembourg</div>
+								<div onclick="setCountry(this)">Macao</div>
+								<div onclick="setCountry(this)">Macedonia North</div>
+								<div onclick="setCountry(this)">Madagascar</div>
+								<div onclick="setCountry(this)">Malawi</div>
+								<div onclick="setCountry(this)">Malaysia</div>
+								<div onclick="setCountry(this)">Maldives</div>
+								<div onclick="setCountry(this)">Mali</div>
+								<div onclick="setCountry(this)">Malta</div>
+								<div onclick="setCountry(this)">Marshall Islands</div>
+								<div onclick="setCountry(this)">Martinique</div>
+								<div onclick="setCountry(this)">Mauritania</div>
+								<div onclick="setCountry(this)">Mauritius</div>
+								<div onclick="setCountry(this)">Mayotte</div>
+								<div onclick="setCountry(this)">Mexico</div>
+								<div onclick="setCountry(this)">Micronesia</div>
+								<div onclick="setCountry(this)">Moldova</div>
+								<div onclick="setCountry(this)">Monaco</div>
+								<div onclick="setCountry(this)">Mongolia</div>
+								<div onclick="setCountry(this)">Montenegro</div>
+								<div onclick="setCountry(this)">Montserrat</div>
+								<div onclick="setCountry(this)">Morocco</div>
+								<div onclick="setCountry(this)">Mozambique</div>
+								<div onclick="setCountry(this)">Myanmar (Burma)</div>
+								<div onclick="setCountry(this)">Namibia</div>
+								<div onclick="setCountry(this)">Nauru</div>
+								<div onclick="setCountry(this)">Nepal</div>
+								<div onclick="setCountry(this)">Netherlands</div>
+								<div onclick="setCountry(this)">Netherlands Antilles</div>
+								<div onclick="setCountry(this)">New Caledonia</div>
+								<div onclick="setCountry(this)">New Zealand</div>
+								<div onclick="setCountry(this)">Nicaragua</div>
+								<div onclick="setCountry(this)">Niger</div>
+								<div onclick="setCountry(this)">Nigeria</div>
+								<div onclick="setCountry(this)">Niue</div>
+								<div onclick="setCountry(this)">Norfolk Island</div>
+								<div onclick="setCountry(this)">Northern Mariana Islands</div>
+								<div onclick="setCountry(this)">Norway</div>
+								<div onclick="setCountry(this)">Oman</div>
+								<div onclick="setCountry(this)">Pakistan</div>
+								<div onclick="setCountry(this)">Palau</div>
+								<div onclick="setCountry(this)">Palestine</div>
+								<div onclick="setCountry(this)">Panama</div>
+								<div onclick="setCountry(this)">Papua New Guinea</div>
+								<div onclick="setCountry(this)">Paraguay</div>
+								<div onclick="setCountry(this)">Peru</div>
+								<div onclick="setCountry(this)">Philippines</div>
+								<div onclick="setCountry(this)">Pitcairn Islands</div>
+								<div onclick="setCountry(this)">Poland</div>
+								<div onclick="setCountry(this)">Portugal</div>
+								<div onclick="setCountry(this)">Puerto Rico</div>
+								<div onclick="setCountry(this)">Qatar</div>
+								<div onclick="setCountry(this)">Reunion</div>
+								<div onclick="setCountry(this)">Romania</div>
+								<div onclick="setCountry(this)">Russian Federation</div>
+								<div onclick="setCountry(this)">Rwanda</div>
+								<div onclick="setCountry(this)">Saint Barthelemy</div>
+								<div onclick="setCountry(this)">Saint Helena</div>
+								<div onclick="setCountry(this)">Saint Kitts and Nevis</div>
+								<div onclick="setCountry(this)">Saint Lucia</div>
+								<div onclick="setCountry(this)">Saint Martin</div>
+								<div onclick="setCountry(this)">Saint Pierre and Miquelon</div>
+								<div onclick="setCountry(this)">Saint Vincent and the Grenadines</div>
+								<div onclick="setCountry(this)">Samoa</div>
+								<div onclick="setCountry(this)">San Marino</div>
+								<div onclick="setCountry(this)">Sao Tome and Principe</div>
+								<div onclick="setCountry(this)">Saudi Arabia</div>
+								<div onclick="setCountry(this)">Senegal</div>
+								<div onclick="setCountry(this)">Serbia</div>
+								<div onclick="setCountry(this)">Serbia and Montenegro</div>
+								<div onclick="setCountry(this)">Seychelles</div>
+								<div onclick="setCountry(this)">Sierra Leone</div>
+								<div onclick="setCountry(this)">Singapore</div>
+								<div onclick="setCountry(this)">Sint Maarten</div>
+								<div onclick="setCountry(this)">Slovakia</div>
+								<div onclick="setCountry(this)">Slovenia</div>
+								<div onclick="setCountry(this)">Solomon Islands</div>
+								<div onclick="setCountry(this)">Somalia</div>
+								<div onclick="setCountry(this)">South Africa</div>
+								<div onclick="setCountry(this)">South Georgia and the South Sandwich Islands</div>
+								<div onclick="setCountry(this)">South Sudan</div>
+								<div onclick="setCountry(this)">Spain</div>
+								<div onclick="setCountry(this)">Sri Lanka</div>
+								<div onclick="setCountry(this)">Sudan</div>
+								<div onclick="setCountry(this)">Suriname</div>
+								<div onclick="setCountry(this)">Svalbard and Jan Mayen</div>
+								<div onclick="setCountry(this)">Sweden</div>
+								<div onclick="setCountry(this)">Switzerland</div>
+								<div onclick="setCountry(this)">Syria</div>
+								<div onclick="setCountry(this)">Taiwan</div>
+								<div onclick="setCountry(this)">Tajikistan</div>
+								<div onclick="setCountry(this)">Tanzania</div>
+								<div onclick="setCountry(this)">Thailand</div>
+								<div onclick="setCountry(this)">Timor-Leste</div>
+								<div onclick="setCountry(this)">Togo</div>
+								<div onclick="setCountry(this)">Tokelau</div>
+								<div onclick="setCountry(this)">Tonga</div>
+								<div onclick="setCountry(this)">Trinidad and Tobago</div>
+								<div onclick="setCountry(this)">Tunisia</div>
+								<div onclick="setCountry(this)">Turkey (Türkiye)</div>
+								<div onclick="setCountry(this)">Turkmenistan</div>
+								<div onclick="setCountry(this)">Turks and Caicos Islands</div>
+								<div onclick="setCountry(this)">Tuvalu</div>
+								<div onclick="setCountry(this)">U.S. Outlying Islands</div>
+								<div onclick="setCountry(this)">Uganda</div>
+								<div onclick="setCountry(this)">Ukraine</div>
+								<div onclick="setCountry(this)">United Arab Emirates</div>
+								<div onclick="setCountry(this)">United Kingdom</div>
+								<div onclick="setCountry(this)">United States</div>
+								<div onclick="setCountry(this)">Uruguay</div>
+								<div onclick="setCountry(this)">Uzbekistan</div>
+								<div onclick="setCountry(this)">Vanuatu</div>
+								<div onclick="setCountry(this)">Vatican City Holy See</div>
+								<div onclick="setCountry(this)">Venezuela</div>
+								<div onclick="setCountry(this)">Vietnam</div>
+								<div onclick="setCountry(this)">Virgin Islands, British</div>
+								<div onclick="setCountry(this)">Virgin Islands, U.S</div>
+								<div onclick="setCountry(this)">Wallis and Futuna</div>
+								<div onclick="setCountry(this)">Western Sahara</div>
+								<div onclick="setCountry(this)">Yemen</div>
+								<div onclick="setCountry(this)">Zambia</div>
+								<div onclick="setCountry(this)">Zimbabwe</div>
+							</div>
+						</div>
+						<br>
+						<label for="SPassword" id="SPasswordLabel">Password</label><input type="password" id="SPassword" name="password" onkeyup="fillSignUp(this, document.getElementById('SPasswordLabel'))" style="padding-left: 40px;"><img src="./img/lock.png" width="24px" style="transform:translate(20px, -34px)">
+						<div class="checkbox" onclick="check(this)">
+							<div class="bubble"></div>
+							<div class="bubble"></div>
+							<div class="bubble"></div>
+							<div class="bubble"></div>
+							<div class="bubble"></div>
+							<div class="bubble"></div>
+							<div class="bubble"></div>
+							<div class="bubble"></div>
+							
+							<div class="checked1"></div>
+							<div class="checked2"></div>
+							<div class="checked3"></div>
+							
+							<p>I agree to Plantit <span>Terms of Service</span>, <span>Code of Conduct</span>, and <span>Privacy Policy</span>.</p>
+						</div>
+						<button type="submit" onclick="checkSFormData(this); return false;">Get started →<div class="checkFormData"></div></button>
+					</div>
+				</form>
+			</div>
+		</div>
+		
+		<div class="logIn" id="logInForm" style="display: none;">
+			<div class="body" id="logInBody">
+				<h1>Welcome back!</h1>
+				<form>
+					<div style="display:flex;justify-content:space-between;align-items:center;opacity:0;visibility:hidden;">
+						<label>First Name</label><input style="width:50%;">
+						<label>Second Name</label><input style="width:50%;">
+					</div>
+					<div style="display:flex;flex-direction:column;align-items:stretch;transform:translateY(-60px);">
+						<label for="LEmail" id="LEmailLabel">Email</label><input type="email" id="LEmail" name="email" onkeyup="validateEmail(this, document.getElementById('LEmailLabel'))" style="padding-left: 40px;"><img src="./img/envelope.png" width="24px" style="transform:translate(20px, -34px)">
+						<br>
+						<label for="LPassword" id="LPasswordLabel">Password</label><input type="password" id="LPassword" name="password" onkeyup="fillSignUp(this, document.getElementById('LPasswordLabel'))" style="padding-left: 40px;"><img src="./img/lock.png" width="24px" style="transform:translate(20px, -34px)">
+						<span class="forgetPsw" onclick="showForgetPassword()">Forget password?</span>
+						<div class="checkbox" onclick="check(this)">
+							<div class="bubble"></div>
+							<div class="bubble"></div>
+							<div class="bubble"></div>
+							<div class="bubble"></div>
+							<div class="bubble"></div>
+							<div class="bubble"></div>
+							<div class="bubble"></div>
+							<div class="bubble"></div>
+							
+							<div class="checked1"></div>
+							<div class="checked2"></div>
+							<div class="checked3"></div>
+							
+							<p>Remeber me!</p>
+						</div>
+						<button type="submit">Login</button>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div id="leavesAndBird">
+			<div class="leaves">
+				<div><img src="./img/leaf3.png" width="200px"></div>
+				<div><img src="./img/leaf2.png" width="180px"></div>
+				<div><img src="./img/leaf3.png" width="220px"></div>
+				<div><img src="./img/leaf1.png" width="170px"></div>
+				<div><img src="./img/leaf1.png" width="210px"></div>
+				<div><img src="./img/leaf2.png" width="190px"></div>
+			</div>
+			<div class="leaves leaves2">
+				<div><img src="./img/leaf3.png" width="180px"></div>
+				<div><img src="./img/leaf2.png" width="200px"></div>
+				<div><img src="./img/leaf1.png" width="220px"></div>
+				<div><img src="./img/leaf2.png" width="170px"></div>
+				<div><img src="./img/leaf3.png" width="190px"></div>
+				<div><img src="./img/leaf1.png" width="210px"></div>
+			</div>
+		</div>
+		<div id="forgetPassword">
+			<div class="firstInteract interactor" style="transform: translateX(0%);">
+				<p align="center"><img src="./img/fingerprint.png" width="50px"></p><br>
+				<h1 align="center"><b>Forgot password?</b></h1>
+				<p>No worries, we’ll send you reset instructions.</p>
+				<br>
+				<label for="FEmail" id="FEmailLabel">Email</label><input id="FEmail" name="email" type="email" onkeyup="validateEmail(this, document.getElementById('FEmailLabel'))" style="padding-left: 40px;"><img src="./img/envelope.png" width="24px" style="transform:translate(10px, -33px)">
+				<button onclick="nextForgetPass(this)">Send code</button>
+				<span style="margin-top:67px;">← Back to log in</span>
+			</div>
+			<div class="secondInteract interactor" style="transform: translateX(100%);">
+				<p align="center"><img src="./img/envelope-open.png" width="50px"></p><br>
+				<h1 align="center"><b>Password reset</b></h1>
+				<p>We sent a code to <b id="forgetPasswordEmail">ex*****@gmail.com</b>.</p>
+				<br>
+				<input onkeyup="fillSignUp(this)"><input onkeyup="fillSignUp(this)"><input onkeyup="fillSignUp(this)"><input onkeyup="fillSignUp(this)">
+				<button style="margin-top: 22px;" onclick="nextForgetPass(this)">Continue</button>
+				<p>Didn’t receive the email? <b>Click here</b>.</p>
+				<span style="margin-top:20px;">← Back to log in</span>
+			</div>
+			<div class="thirdInteract interactor" style="transform: translateX(100%);">
+				<p align="center"><img src="./img/password.png" width="50px"></p><br>
+				<h1 align="center"><b>Set new password</b></h1>
+				<p>Must be at least 8 characters.</p>
+				<br>
+				<label for="FPassword" id="FPasswordLabel">Password</label><input id="FPassword" name="password" type="password" onkeyup="fillSignUp(this, document.getElementById('FPasswordLabel'))">
+				<br>
+				<label for="FConPassword" id="FConPasswordLabel">Confirm password</label><input id="FConPassword" name="password" type="password" onkeyup="fillSignUp(this, document.getElementById('FConPasswordLabel'))">
+				<button style="margin-top:22px;" onclick="nextForgetPass(this)">Reset password</button>
+				<span style="margin-top:94px;">← Back to log in</span>
+			</div>
+		</div>
+	</div>
+	
+	
+	
+	
+	<script>
+const validateEmailReg = (email) => {
+	return email.match(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+	);
+};
+function validateEmail(input, e) {
+	if (validateEmailReg(input.value)) { input.style.borderColor = "#005eff"; e.style.color = "#005eff"; }
+	else { input.style.borderColor = "red"; e.style.color = "red"; }
+	
+	if (input.value.trim() == "") { input.style.borderColor = "#dde4ee"; e.style.color = "#9094a0"; }
+}
+function fillSignUp(input, e) {
+	if (input.value.trim() == "") { input.style.borderColor = "#dde4ee"; e.style.color = "#9094a0"; }
+	else { input.style.borderColor = "#005eff"; e.style.color = "#005eff"; }
+}
+function showOptionsCountries() {
+	document.getElementById("options").classList.toggle("show");
+	document.getElementById("options").classList.toggle("hide");
+	document.getElementById("options").style.width = document.getElementById("countriesShowerbtn").offsetWidth + 'px';
+}
+
+function setCountry(countryName) {
+	document.getElementById("countriesShowerbtn").innerText = countryName.innerText;
+	document.getElementById("countriesShowerbtn").style.borderColor = "#005eff";
+	document.getElementById("CountriesLabel").style.color = "#005eff";
+	document.getElementById("options").classList.toggle("show");
+	document.getElementById("options").classList.toggle("hide");
+}
+
+function check(e) {
+	let bubbles = e.querySelectorAll('.bubble');
+	let checked1 = e.querySelector('.checked1');
+	let checked2 = e.querySelector('.checked2');
+	let checked3 = e.querySelector('.checked3');
+	
+	e.style.borderColor = "#f4fbff";
+	e.style.background = "#f4fbff";
+	
+	bubbles.forEach(bubble => {
+		bubble.classList.add('showBubble');
+		bubble.style.width = "10px";
+		bubble.style.height = "10px";
+		bubble.style.rotate = "80deg";
+	});
+	
+	
+	checked3.style.opacity = "1";
+	
+	setTimeout(function() {
+		checked1.style.opacity = "1";
+		checked2.style.opacity = "1";
+		
+		e.style.width = "32px";
+		e.style.height = "32px";
+		
+		setTimeout(function() {
+			checked3.style.width = "0px";
+		}, 100);
+	}, 250);
+	setTimeout(function() {
+		bubbles.forEach(bubble => {
+			bubble.style.rotate = "20deg";
+			bubble.style.width = "0px";
+			bubble.style.height = "0px";
+		});
+	}, 750);
+	
+}
+
+function transLoginSignup(isInSignUp, e) {
+	const bg = document.getElementById("signBG");
+	const bg1 = document.getElementById("signBG1");
+	const head = document.getElementById("SignUpInspiration");
+	const head_P = document.getElementById("SignUpInspirationP");
+	const to_login_btn = document.getElementById("toLogin");
+	const to_login_h1 = document.getElementById("toLoginH");
+	const to_login_p = document.getElementById("toLoginP");
+	const to_signup_btn = document.getElementById("toSignup");
+	const to_signup_h1 = document.getElementById("toSignupH");
+	const to_signup_p = document.getElementById("toSignupP");
+	const review = document.getElementById("SignUpRev");
+	
+	const signup_form = document.getElementById("signUpForm");
+	const login_form = document.getElementById("logInForm");
+	const login_formB = document.getElementById("logInBody");
+	
+	if (isInSignUp) {
+		head.style.transform = "translateX(-400%)";
+		head.style.opacity = "0";
+		setTimeout(function() {
+			head_P.style.transform = "translateX(-400%)";
+			head_P.style.opacity = "0";
+			
+			bg.style.width = "660px";
+			bg1.style.width = "660px";
+			
+			setTimeout(function() {
+				login_form.style.display = "block";
+				login_formB.style.visibility = "visible";
+			}, 150);
+			
+			setTimeout(function() {
+				review.style.transform = "translateX(-400%)";
+				review.style.opacity = "0";
+				
+				setTimeout(function() {
+					to_login_h1.style.transform = "translateX(-400%)";
+					to_login_h1.style.opacity = "0";
+					
+					to_signup_h1.style.transform = "translateX(400%)";
+					to_signup_h1.style.opacity = "0";
+					
+					setTimeout(function() {
+						to_login_p.style.transform = "translateX(-400%)";
+						to_login_p.style.opacity = "0";
+						
+						to_signup_p.style.transform = "translateX(400%)";
+						to_signup_p.style.opacity = "0";
+						
+						head.style.transform = "translateX(400%)";
+						head.innerText = "Hi there,"
+						head_P.style.transform = "translateX(400%)";
+						head_P.innerHTML = "We're glad that you are coming back,<br> we will be happy to help you grow your plants!";
+						review.style.transform = "translateX(400%)";
+					}, 100);
+				}, 100);
+			}, 100);
+		}, 100);
+		
+		
+		
+		setTimeout(function() {
+			to_login_btn.style.background = "rgba(0,0,0,0)";
+			to_signup_btn.style.background = "rgba(0,0,0,0)";
+			
+			e.style.width = "190px";
+			e.style.padding = "9px";
+			e.style.color = "rgba(255,255,255,0)";
+			e.style.borderRadius = "25px";
+			
+			bg.style.left = "calc(100% - 900px)";
+			bg1.style.left = "calc(100% - 900px)";
+			
+			signup_form.style.transform = "translateX(-35%)";
+			signup_form.style.opacity = "0";
+			
+			login_formB.style.paddingLeft = "95px";
+			login_formB.style.paddingRight = "552px";
+			login_formB.style.opacity = "1";
+			
+			setTimeout(function() {
+				to_login_btn.style.background = "rgba(0,0,0,0.5)";
+				to_signup_btn.style.background = "rgba(0,0,0,0.5)";
+				
+				e.style.width = "150px";
+				e.style.padding = "14px";
+				e.style.color = "rgba(255,255,255,1)";
+				e.style.borderRadius = "7px";
+				
+				bg.style.left = "calc(100% - 450px)";
+				bg1.style.left = "calc(100% - 450px)";
+				bg.style.width = "450px";
+				bg1.style.width = "450px";
+				
+				setTimeout(function() {
+					to_signup_btn.style.display = "block";
+					to_login_btn.style.display = "none";
+				}, 100);
+				
+				setTimeout(function() {
+					to_signup_h1.style.transform = "translateX(0%)";
+					to_signup_h1.style.opacity = "1";
+					
+					setTimeout(function() {
+						to_signup_p.style.transform = "translateX(0%)";
+						to_signup_p.style.opacity = "1";
+						
+						signup_form.style.display = "none";
+						
+						setTimeout(function() {
+							review.style.transform = "translateX(0%)";
+							review.style.opacity = "1";
+							
+							setTimeout(function() {
+								head_P.style.transform = "translateX(0%)";
+								head_P.style.opacity = "1";
+								
+								setTimeout(function() {
+									head.style.transform = "translateX(0%)";
+									head.style.opacity = "1";
+								}, 100);
+							}, 100);
+						}, 100);
+					}, 100);
+				}, 400);
+			}, 500);
+		}, 200);
+	} else {
+		head.style.transform = "translateX(400%)";
+		head.style.opacity = "0";
+		
+		signup_form.style.display = "block";
+		
+		setTimeout(function() {
+			head_P.style.transform = "translateX(400%)";
+			head_P.style.opacity = "0";
+			
+			bg.style.width = "660px";
+			bg1.style.width = "660px";
+			
+			setTimeout(function() {
+				review.style.transform = "translateX(400%)";
+				review.style.opacity = "0";
+				
+				setTimeout(function() {
+					to_login_h1.style.transform = "translateX(-400%)";
+					to_login_h1.style.opacity = "0";
+					
+					to_signup_h1.style.transform = "translateX(400%)";
+					to_signup_h1.style.opacity = "0";
+					
+					setTimeout(function() {
+						to_login_p.style.transform = "translateX(-400%)";
+						to_login_p.style.opacity = "0";
+						
+						to_signup_p.style.transform = "translateX(400%)";
+						to_signup_p.style.opacity = "0";
+						
+						head.style.transform = "translateX(-400%)";
+						head.innerText = "Let’s grow together!"
+						head_P.style.transform = "translateX(-400%)";
+						head_P.innerHTML = "Join our community of plant lovers.<br>Sign up now and receive personalized plant care tips, exclusive discounts, and more.";
+						review.style.transform = "translateX(-400%)";
+					}, 100);
+				}, 100);
+			}, 100);
+		}, 100);
+		
+		
+		
+		setTimeout(function() {
+			to_login_btn.style.background = "rgba(0,0,0,0)";
+			to_signup_btn.style.background = "rgba(0,0,0,0)";
+			
+			e.style.width = "190px";
+			e.style.padding = "9px";
+			e.style.color = "rgba(255,255,255,0)";
+			e.style.borderRadius = "25px";
+			
+			bg.style.left = "calc(100% - 900px)";
+			bg1.style.left = "calc(100% - 900px)";
+			
+			signup_form.style.transform = "translateX(0%)";
+			signup_form.style.opacity = "1";
+			
+			login_formB.style.paddingLeft = "552px";
+			login_formB.style.paddingRight = "95px";
+			login_formB.style.opacity = "0";
+			
+			setTimeout(function() {
+				to_login_btn.style.background = "rgba(0,0,0,0.5)";
+				to_signup_btn.style.background = "rgba(0,0,0,0.5)";
+				
+				e.style.width = "150px";
+				e.style.padding = "14px";
+				e.style.color = "rgba(255,255,255,1)";
+				e.style.borderRadius = "7px";
+				
+				bg.style.left = "0px";
+				bg1.style.left = "0px";
+				bg.style.width = "450px";
+				bg1.style.width = "450px";
+				
+				setTimeout(function() {
+					to_signup_btn.style.display = "none";
+					to_login_btn.style.display = "block";
+				}, 100);
+				
+				setTimeout(function() {
+					to_login_h1.style.transform = "translateX(0%)";
+					to_login_h1.style.opacity = "1";
+					
+					login_formB.style.visibility = "hidden";
+					login_form.style.display = "none";
+					
+					setTimeout(function() {
+						to_login_p.style.transform = "translateX(0%)";
+						to_login_p.style.opacity = "1";
+						
+						setTimeout(function() {
+							review.style.transform = "translateX(0%)";
+							review.style.opacity = "1";
+							
+							setTimeout(function() {
+								head_P.style.transform = "translateX(0%)";
+								head_P.style.opacity = "1";
+								
+								setTimeout(function() {
+									head.style.transform = "translateX(0%)";
+									head.style.opacity = "1";
+								}, 100);
+							}, 100);
+						}, 100);
+					}, 100);
+				}, 400);
+			}, 500);
+		}, 200);
+	}
+}
+
+
+function showForgetPassword() {
+	const bg = document.getElementById("signBG");
+	const bg1 = document.getElementById("signBG1");
+	const login_form = document.getElementById("logInForm");
+	const head = document.getElementById("SignUpInspiration");
+	const head_P = document.getElementById("SignUpInspirationP");
+	const to_signup_h1 = document.getElementById("toSignupH");
+	const to_signup_p = document.getElementById("toSignupP");
+	const review = document.getElementById("SignUpRev");
+	const leavesAndBird = document.getElementById("leavesAndBird");
+	
+	
+	setTimeout(function () {
+		head.style.transform = "translateX(400%)";
+		head.style.transitionTimingFunction = "cubic-bezier(.35,-0.53,.99,.99)";
+		
+		setTimeout(function () {
+			head_P.style.transform = "translateX(400%)";
+			head_P.style.transitionTimingFunction = "cubic-bezier(.35,-0.53,.99,.99)";
+			
+			setTimeout(function () {
+				review.style.transform = "translateX(400%)";
+				review.style.transitionTimingFunction = "cubic-bezier(.35,-0.53,.99,.99)";
+				
+				setTimeout(function () {
+					to_signup_h1.style.transform = "translateX(400%)";
+					to_signup_h1.style.transitionTimingFunction = "cubic-bezier(.35,-0.53,.99,.99)";
+					
+					setTimeout(function () {
+						to_signup_p.style.transform = "translateX(400%)";
+						to_signup_p.style.transitionTimingFunction = "cubic-bezier(.35,-0.53,.99,.99)";
+						
+						setTimeout(function () {
+							
+							bg.style.transform = "translateX(110%)";
+							bg1.style.transform = "translateX(110%)";
+							bg.style.transitionTimingFunction = "cubic-bezier(.35,-0.53,.99,.99)";
+							bg1.style.transitionTimingFunction = "cubic-bezier(.35,-0.53,.99,.99)";
+							
+							login_form.style.transform = "translateX(-100%)";
+							login_form.style.transition = "all 1s cubic-bezier(.35,-0.53,.99,.99)";
+							
+							setTimeout(function() {
+								leavesAndBird.style.display = "block";
+								leavesAndBird.style.opacity = "0";
+								
+								setTimeout(function() {
+									leavesAndBird.style.opacity = "1";
+									
+									setTimeout(function() {
+										leavesAndBird.style.opacity = "0";
+										setTimeout(function() {
+											leavesAndBird.style.display = "none";
+										}, 400);
+									}, 400);
+								}, 500);
+							}, 100);
+						}, 100);
+					}, 100);
+				}, 100);
+			}, 100);
+		}, 100);
+	}, 100);
+}
+
+function nextForgetPass(btnTXT) {
+	
+	const forgetPassword = document.querySelector("#forgetPassword");
+	var firstInteract = forgetPassword.querySelector(".firstInteract");
+	var secondInteract = forgetPassword.querySelector(".secondInteract");
+	var thirdInteract = forgetPassword.querySelector(".thirdInteract");
+	
+	if (btnTXT.innerText == "Send code") {
+		firstInteract.style.transform = "translateX(-100%)";
+		secondInteract.style.transform = "translateX(0%)";
+	} else if (btnTXT.innerText == "Continue") {
+		secondInteract.style.transform = "translateX(-100%)";
+		thirdInteract.style.transform = "translateX(0%)";
+	} else {
+		thirdInteract.style.transform = "translateX(-100%)";
+	}
+}
+
+function checkSFormData(btn) {
+	
+	const emailInput = document.querySelector("#SEmail");
+	const passwordInput = document.querySelector("#SPassword");
+	const firstNameInput = document.querySelector("#firstName");
+	const secondNameInput = document.querySelector("#secondName");
+	
+	const emailAlert = document.querySelector(".emailAlert");
+	const passwordAlert = document.querySelector(".passwordAlert");
+	const firstNameAlert = document.querySelector(".nameAlert");
+	const secondNameAlert = document.querySelector(".snameAlert");
+	
+	btn.style.cursor='not-allowed';
+	btn.style.opacity='0.5';
+	btn.querySelector('.checkFormData').style.display='block';
+	
+	setTimeout(function() {
+		btn.style.cursor='pointer';
+		btn.style.opacity='1';
+		btn.querySelector('.checkFormData').style.display='none';
+		
+		if (validateEmailReg(emailInput.value) && passwordInput.value.trim().length >= 8 && firstNameInput.value.trim() != "" && secondNameInput.value.trim() != "") {
+			alert("everything correct");
+		} else {
+			if (!validateEmailReg(emailInput.value)) {
+				emailAlert.style.display = "block";
+				setTimeout(function() {
+					emailAlert.style.transform = "translate(-107px,-30px)";
+					emailAlert.style.opacity = "1";
+				}, 210);
+			} else {
+				emailAlert.style.transform = "translate(-107px,-10px)";
+				emailAlert.style.opacity = "0";
+				setTimeout(function() {
+					emailAlert.style.display = "none";
+				}, 300);
+			}
+			
+			if (passwordInput.value.trim().length < 8) {
+				passwordAlert.style.display = "block";
+				setTimeout(function() {
+					passwordAlert.style.transform = "translate(-110px, 178px)";
+					passwordAlert.style.opacity = "1";
+				}, 310);
+			} else {
+				passwordAlert.style.transform = "translate(-110px, 198px)";
+				passwordAlert.style.opacity = "0";
+				setTimeout(function() {
+					passwordAlert.style.display = "none";
+				}, 300);
+			}
+			
+			if (firstNameInput.value.trim() == "") {
+				firstNameAlert.style.display = "block";
+				setTimeout(function() {
+					firstNameAlert.style.transform = "translate(-151px, -129px)";
+					firstNameAlert.style.opacity = "1";
+				}, 10);
+			} else {
+				firstNameAlert.style.transform = "translate(-151px, -109px)";
+				firstNameAlert.style.opacity = "0";
+				setTimeout(function() {
+					firstNameAlert.style.display = "none";
+				}, 300);
+			}
+			
+			if (secondNameInput.value.trim() == "") {
+				secondNameAlert.style.display = "block";
+				setTimeout(function() {
+					secondNameAlert.style.transform = "translate(99px, -129px)";
+					secondNameAlert.style.opacity = "1";
+				}, 110);
+			} else {
+				secondNameAlert.style.transform = "translate(99px, -109px)";
+				secondNameAlert.style.opacity = "0";
+				setTimeout(function() {
+					secondNameAlert.style.display = "none";
+				}, 300);
+			}
+			
+			setTimeout(function() {
+				setTimeout(function() {
+					emailAlert.style.transform = "translate(-107px,-10px)";
+					emailAlert.style.opacity = "0";
+					setTimeout(function() {
+						emailAlert.style.display = "none";
+					}, 300);
+				}, 200);
+				
+				setTimeout(function() {
+					passwordAlert.style.transform = "translate(-110px, 198px)";
+					passwordAlert.style.opacity = "0";
+					setTimeout(function() {
+						passwordAlert.style.display = "none";
+					}, 300);
+				}, 300);
+				
+				firstNameAlert.style.transform = "translate(-151px, -109px)";
+				firstNameAlert.style.opacity = "0";
+				setTimeout(function() {
+					firstNameAlert.style.display = "none";
+				}, 300);
+				
+				setTimeout(function() {
+					secondNameAlert.style.transform = "translate(99px, -109px)";
+					secondNameAlert.style.opacity = "0";
+					setTimeout(function() {
+						secondNameAlert.style.display = "none";
+					}, 300);
+				}, 100);
+				
+			}, 4000);
+		}
+		
+	}, 1200);
+}
+	</script>
+</body>
+</html>
