@@ -77,30 +77,34 @@ body {
 	background: #FBC893;
 	color: #FFF;
 }
-.nav span {
+.nav .links button span {
 	position: absolute;
-	width: 23px;
+	width: 0px;
 	height: 3px;
 	background: #74F1AB;
 	border-radius: 13px;
 	top: 45px;
 	left: 15px;
-	transform: translateX(50%);
+	transition: all 0.3s;
 }
-.nav .links button:nth-of-type(1):hover ~ span {
+.nav .links button:nth-of-type(1) span {
 	transform: translateX(50%);
+	width: 23px;
 }
-.nav .links button:nth-of-type(2):hover ~ span {
+.nav .links button:nth-of-type(2) span {
 	transform: translateX(87.5px);
 }
-.nav .links button:nth-of-type(3):hover ~ span {
+.nav .links button:nth-of-type(3) span {
 	transform: translateX(167px);
 }
-.nav .links button:nth-of-type(4):hover ~ span {
+.nav .links button:nth-of-type(4) span {
 	transform: translateX(245px);
 }
-.nav .links button:nth-of-type(5):hover ~ span {
+.nav .links button:nth-of-type(5) span {
 	transform: translateX(327px);
+}
+.nav .links button:hover span {
+	width: 23px;
 }
 .nav hr {
 	margin-top: 80px;
@@ -370,19 +374,18 @@ body {
 	height: 100%;
 	z-index: 101;
 	background: #FFF;
-	display: flex;
+	display: none;
 	align-items: center;
 }
 .getStarted .bg, .getStarted .bg1 {
 	position: fixed;
 	width: 450px;
 	height: 100%;
-	left: 0px;
 	z-index: 2;
 }
 .getStarted .bg {
 	background-image: url(' ./img/signup.jpg ');
-	background-position: 0% 100%;
+	background-position: 100% 100%;
 	filter: blur(7px);
 }
 .getStarted .bg1 {
@@ -443,7 +446,7 @@ body {
 	margin-top: 27px;
 }
 .getStarted .bg1 .ToLogin button:hover, .getStarted .bg1 .ToSignup button:hover {
-	background-position: 100% 100%;
+	background-position: 90% 100%;
 }
 .getStarted .bg1 .review {
 	position: absolute;
@@ -698,6 +701,7 @@ body {
 	animation: loadcheckbtn 0.5s linear infinite;
 	display: none;
 }
+
 @keyframes loadcheckbtn {
 	0% {
 		transform: translate(426px, -26px) rotate(0deg);
@@ -979,6 +983,26 @@ body {
 .getStarted #forgetPassword .interactor button:hover {
 	background: #1a5dce;
 }
+.getStarted #forgetPassword .interactor button .checkFormData {
+	position: absolute;
+	width: 30px;
+	height: 30px;
+	background: transparent;
+	border-radius: 50%;
+	border: 2px solid #f3f3f3;
+	border-top-color: #3498db;
+	transform: translate(344px, -26px) rotate(0deg);
+	animation: loadcheckbtnforgetpassword 0.5s linear infinite;
+	display: none;
+}
+@keyframes loadcheckbtnforgetpassword {
+	0% {
+		transform: translate(344px, -26px) rotate(0deg);
+	}
+	100% {
+		transform: translate(344px, -26px) rotate(360deg);
+	}
+}
 .getStarted #forgetPassword .interactor span {
 	color: #9094A0;
 	position: absolute;
@@ -1060,6 +1084,19 @@ body {
 	z-index: 2;
 	transition: all 0.2s;
 }
+.getStarted .logIn .body .LAlert {
+	position: absolute;
+	padding: 20px;
+	color: red;
+	background-color: #f8c7ca;
+	text-align: center;
+	border-radius: 15px;
+	display: none;
+	opacity: 0;
+	z-index: 2;
+	transition: all 0.2s;
+	transform: translate(0px,-177px);
+}
 .getStarted .signUp .body .emailAlert {
 	transform: translate(-107px,-10px);
 }
@@ -1090,15 +1127,14 @@ body {
 		<h2><img src="./img/logo.png" width="27px" alt="LOGO"> Plantit</h2>
 		
 		<div class="links">
-			<button class="link">Home</button>
-			<button class="link">Shop</button>
-			<button class="link">Gallery</button>
-			<button class="link">Blog</button>
-			<button class="link">Contact</button>
-			<span></span>
+			<button class="link">Home<span></span></button>
+			<button class="link">Shop<span></span></button>
+			<button class="link">Gallery<span></span></button>
+			<button class="link">Blog<span></span></button>
+			<button class="link">Contact<span></span></button>
 		</div>
 		
-		<button class="GetStartedbtn">Get Started</button>
+		<button class="GetStartedbtn" onclick="goToSignUpWithAnim()">Get Started</button>
 		
 		<hr />
 	</div>
@@ -1110,7 +1146,7 @@ body {
 			<input placeholder="What are you looking for?">
 			<button>Search</button>
 		</div>
-		<button class="join">Join Us</button><span class="andbtns"> & </span><button class="explore">Explore</button>
+		<button class="join" onclick="goToSignUpWithAnim()">Join Us</button><span class="andbtns"> & </span><button class="explore">Explore</button>
 		<div class="right">
 			<div class="bg"></div>
 			
@@ -1469,7 +1505,7 @@ body {
 						</div>
 						<br>
 						<label for="SPassword" id="SPasswordLabel">Password</label><input type="password" id="SPassword" name="password" onkeyup="fillSignUp(this, document.getElementById('SPasswordLabel'))" style="padding-left: 40px;"><img src="./img/lock.png" width="24px" style="transform:translate(20px, -34px)">
-						<div class="checkbox" onclick="check(this)">
+						<div class="checkbox" id="termsofuse_checkbox" onclick="check(this)" data-check="no">
 							<div class="bubble"></div>
 							<div class="bubble"></div>
 							<div class="bubble"></div>
@@ -1494,12 +1530,13 @@ body {
 		<div class="logIn" id="logInForm" style="display: none;">
 			<div class="body" id="logInBody">
 				<h1>Welcome back!</h1>
+				<div class="LAlert">Sorry, unrecognised username or password<br>[INVALID_CREDENTIALS]</div>
 				<form>
 					<div style="display:flex;justify-content:space-between;align-items:center;opacity:0;visibility:hidden;">
 						<label>First Name</label><input style="width:50%;">
 						<label>Second Name</label><input style="width:50%;">
 					</div>
-					<div style="display:flex;flex-direction:column;align-items:stretch;transform:translateY(-60px);">
+					<div id="loginFormCheck" style="display:flex;flex-direction:column;align-items:stretch;transform:translateY(-60px);">
 						<label for="LEmail" id="LEmailLabel">Email</label><input type="email" id="LEmail" name="email" onkeyup="validateEmail(this, document.getElementById('LEmailLabel'))" style="padding-left: 40px;"><img src="./img/envelope.png" width="24px" style="transform:translate(20px, -34px)">
 						<br>
 						<label for="LPassword" id="LPasswordLabel">Password</label><input type="password" id="LPassword" name="password" onkeyup="fillSignUp(this, document.getElementById('LPasswordLabel'))" style="padding-left: 40px;"><img src="./img/lock.png" width="24px" style="transform:translate(20px, -34px)">
@@ -1520,7 +1557,7 @@ body {
 							
 							<p>Remeber me!</p>
 						</div>
-						<button type="submit">Login</button>
+						<button type="submit" onclick="checkLFormData(this); return false;">Login<div class="checkFormData"></div></button>
 					</div>
 				</form>
 			</div>
@@ -1550,7 +1587,7 @@ body {
 				<p>No worries, we’ll send you reset instructions.</p>
 				<br>
 				<label for="FEmail" id="FEmailLabel">Email</label><input id="FEmail" name="email" type="email" onkeyup="validateEmail(this, document.getElementById('FEmailLabel'))" style="padding-left: 40px;"><img src="./img/envelope.png" width="24px" style="transform:translate(10px, -33px)">
-				<button onclick="nextForgetPass(this)">Send code</button>
+				<button onclick="nextForgetPass(this)">Send code<div class="checkFormData"></div></button>
 				<span style="margin-top:67px;">← Back to log in</span>
 			</div>
 			<div class="secondInteract interactor" style="transform: translateX(100%);">
@@ -1558,20 +1595,25 @@ body {
 				<h1 align="center"><b>Password reset</b></h1>
 				<p>We sent a code to <b id="forgetPasswordEmail">ex*****@gmail.com</b>.</p>
 				<br>
-				<input onkeyup="fillSignUp(this)"><input onkeyup="fillSignUp(this)"><input onkeyup="fillSignUp(this)"><input onkeyup="fillSignUp(this)">
-				<button style="margin-top: 22px;" onclick="nextForgetPass(this)">Continue</button>
+				<!-- { -->
+				<input class="validateCode_a" maxlength="1" onkeyup="fillValidateCode(this, event)">
+				<input class="validateCode_b" maxlength="1" onkeyup="fillValidateCode(this, event)">
+				<input class="validateCode_c" maxlength="1" onkeyup="fillValidateCode(this, event)">
+				<input class="validateCode_d" maxlength="1" onkeyup="fillValidateCode(this, event)">
+				<!-- } -->
+				<button style="margin-top: 22px;" onclick="nextForgetPass(this)">Continue<div class="checkFormData"></div></button>
 				<p>Didn’t receive the email? <b>Click here</b>.</p>
 				<span style="margin-top:20px;">← Back to log in</span>
 			</div>
 			<div class="thirdInteract interactor" style="transform: translateX(100%);">
 				<p align="center"><img src="./img/password.png" width="50px"></p><br>
 				<h1 align="center"><b>Set new password</b></h1>
-				<p>Must be at least 8 characters.</p>
+				<p class="err____0____r">Must be at least 8 characters.</p>
 				<br>
 				<label for="FPassword" id="FPasswordLabel">Password</label><input id="FPassword" name="password" type="password" onkeyup="fillSignUp(this, document.getElementById('FPasswordLabel'))">
 				<br>
 				<label for="FConPassword" id="FConPasswordLabel">Confirm password</label><input id="FConPassword" name="password" type="password" onkeyup="fillSignUp(this, document.getElementById('FConPasswordLabel'))">
-				<button style="margin-top:22px;" onclick="nextForgetPass(this)">Reset password</button>
+				<button style="margin-top:22px;" onclick="nextForgetPass(this)">Reset password<div class="checkFormData"></div></button>
 				<span style="margin-top:94px;">← Back to log in</span>
 			</div>
 		</div>
@@ -1617,6 +1659,7 @@ function check(e) {
 	
 	e.style.borderColor = "#f4fbff";
 	e.style.background = "#f4fbff";
+	e.dataset.check = "yes";
 	
 	bubbles.forEach(bubble => {
 		bubble.classList.add('showBubble');
@@ -1901,7 +1944,8 @@ function showForgetPassword() {
 	const to_signup_p = document.getElementById("toSignupP");
 	const review = document.getElementById("SignUpRev");
 	const leavesAndBird = document.getElementById("leavesAndBird");
-	
+	const forgetPSW = document.getElementById("forgetPassword");
+	forgetPSW.style.visibility = "visible";
 	
 	setTimeout(function () {
 		head.style.transform = "translateX(400%)";
@@ -1963,14 +2007,156 @@ function nextForgetPass(btnTXT) {
 	var secondInteract = forgetPassword.querySelector(".secondInteract");
 	var thirdInteract = forgetPassword.querySelector(".thirdInteract");
 	
-	if (btnTXT.innerText == "Send code") {
-		firstInteract.style.transform = "translateX(-100%)";
-		secondInteract.style.transform = "translateX(0%)";
-	} else if (btnTXT.innerText == "Continue") {
-		secondInteract.style.transform = "translateX(-100%)";
-		thirdInteract.style.transform = "translateX(0%)";
+	var email = firstInteract.querySelector("#FEmail");
+	var passwordReset = thirdInteract.querySelector("#FPassword");
+	var passwordConfirmationReset = thirdInteract.querySelector("#FConPassword");
+	var validateCodeText = secondInteract.querySelector(".validateCode_a").value + secondInteract.querySelector(".validateCode_b").value + secondInteract.querySelector(".validateCode_c").value + secondInteract.querySelector(".validateCode_d").value;
+	console.log(validateCodeText); // ----------------------------------------------------------------------------c
+	var error = thirdInteract.querySelector(".err____0____r");
+	
+	btnTXT.style.cursor='not-allowed';
+	btnTXT.style.opacity='0.5';
+	btnTXT.querySelector('.checkFormData').style.display='block';
+	
+	setTimeout(function() {
+		btnTXT.style.cursor='pointer';
+		btnTXT.style.opacity='1';
+		btnTXT.querySelector('.checkFormData').style.display='none';
+		
+		if (btnTXT.innerText == "Send code") {
+			if (validateEmailReg(email.value)) {
+				firstInteract.style.transform = "translateX(-100%)";
+				secondInteract.style.transform = "translateX(0%)";
+			} else {
+				setTimeout(function() {
+					email.style.transform = "translate(1px, 1px) rotate(0deg)";
+					
+					setTimeout(function() {
+						email.style.transform = "translate(-1px, -2px) rotate(-1deg)";
+						email.style.borderColor = "red";
+						
+						setTimeout(function() {
+							email.style.transform = "translate(-3px, 0px) rotate(1deg)";
+							email.style.color = "red";
+							
+							setTimeout(function() {
+								email.style.transform = "translate(3px, 2px) rotate(0deg)";
+								email.style.borderColor = "#dde4ee";
+								
+								setTimeout(function() {
+									email.style.transform = "translate(1px, -1px) rotate(1deg)";
+									email.style.backgroundColor = "transparent";
+									
+									setTimeout(function() {
+										email.style.transform = "translate(-1px, 2px) rotate(-1deg)";
+										email.style.borderColor = "red";
+										
+										setTimeout(function() {
+											email.style.transform = "translate(-3px, 1px) rotate(0deg)";
+											
+											setTimeout(function() {
+												email.style.transform = "translate(3px, 1px) rotate(-1deg)";
+												email.style.borderColor = "#dde4ee";
+												
+												setTimeout(function() {
+													email.style.transform = "translate(-1px, -1px) rotate(1deg)";
+													email.style.backgroundColor = "transparent";
+													
+													setTimeout(function() {
+														email.style.transform = "translate(1px, 2px) rotate(0deg)";
+														email.style.backgroundColor = "transparent";
+														email.style.borderColor = "red";
+														
+														setTimeout(function() {
+															email.style.transform = "translate(0px, 0px) rotate(0deg)";
+															email.style.color = "black";
+														}, 100);
+													}, 100);
+												}, 100);
+											}, 100);
+										}, 100);
+									}, 100);
+								}, 100);
+							}, 100);
+						}, 100);
+					}, 100);
+				}, 100);
+			}
+		} else if (btnTXT.innerText == "Continue") {
+			if (validateCodeText.length == 4) {
+				secondInteract.style.transform = "translateX(-100%)";
+				thirdInteract.style.transform = "translateX(0%)";
+			} else {
+				secondInteract.querySelector(".validateCode_a").style.borderColor = "red";
+				secondInteract.querySelector(".validateCode_a").style.color = "red";
+				
+				secondInteract.querySelector(".validateCode_b").style.borderColor = "red";
+				secondInteract.querySelector(".validateCode_b").style.color = "red";
+				
+				secondInteract.querySelector(".validateCode_c").style.borderColor = "red";
+				secondInteract.querySelector(".validateCode_c").style.color = "red";
+				
+				secondInteract.querySelector(".validateCode_d").style.borderColor = "red";
+				secondInteract.querySelector(".validateCode_d").style.color = "red";
+				
+				setTimeout(function() {
+					secondInteract.querySelector(".validateCode_a").style.borderColor = "#dde4ee";
+					secondInteract.querySelector(".validateCode_b").style.borderColor = "#dde4ee";
+					secondInteract.querySelector(".validateCode_c").style.borderColor = "#dde4ee";
+					secondInteract.querySelector(".validateCode_d").style.borderColor = "#dde4ee";
+				}, 300);
+				
+				setTimeout(function() {
+					secondInteract.querySelector(".validateCode_a").style.borderColor = "red";
+					secondInteract.querySelector(".validateCode_a").style.color = "black";
+					
+					secondInteract.querySelector(".validateCode_b").style.borderColor = "red";
+					secondInteract.querySelector(".validateCode_b").style.color = "black";
+					
+					secondInteract.querySelector(".validateCode_c").style.borderColor = "red";
+					secondInteract.querySelector(".validateCode_c").style.color = "black";
+					
+					secondInteract.querySelector(".validateCode_d").style.borderColor = "red";
+					secondInteract.querySelector(".validateCode_d").style.color = "black";
+				}, 600);
+			}
+		} else {
+			if (passwordReset.value.length >= 8) {
+				if (passwordReset.value == passwordConfirmationReset.value) {
+					thirdInteract.style.transform = "translateX(-100%)";
+				} else {
+					passwordConfirmationReset.style.borderColor = "red";
+				}
+			} else {
+				error.style.color = "#dd9900";
+				error.style.background = "rgba(255, 0, 0, 0.1)";
+				error.style.padding = "10px";
+				error.style.border = "2px solid orange";
+				error.style.borderRadius = "17px";
+				setTimeout(function() {
+					error.style.color = "#9094A0";
+					error.style.background = "transparent";
+					error.style.padding = "0px";
+					error.style.border = "0px solid transparent";
+					error.style.borderRadius = "0px";
+				}, 6000);
+			}
+		}
+	}, 1200);
+}
+function fillValidateCode(input, event) {
+	if (input.value.trim() === "") {
+		input.style.borderColor = "#dde4ee";
+		input.value = "";
 	} else {
-		thirdInteract.style.transform = "translateX(-100%)";
+		input.style.borderColor = "#005eff";
+		
+		if (event.key !== "Backspace" && event.key !== "Delete") {
+			let nextInput = input.nextElementSibling; // Find the next input element
+			if (nextInput) {
+				nextInput.focus(); // Focus on the next input
+			}
+		}
 	}
 }
 
@@ -1986,6 +2172,9 @@ function checkSFormData(btn) {
 	const firstNameAlert = document.querySelector(".nameAlert");
 	const secondNameAlert = document.querySelector(".snameAlert");
 	
+	const TermsOfUse = document.querySelector("#termsofuse_checkbox");
+	const checkTermsOfUse = TermsOfUse.dataset.check;
+	
 	btn.style.cursor='not-allowed';
 	btn.style.opacity='0.5';
 	btn.querySelector('.checkFormData').style.display='block';
@@ -1996,7 +2185,61 @@ function checkSFormData(btn) {
 		btn.querySelector('.checkFormData').style.display='none';
 		
 		if (validateEmailReg(emailInput.value) && passwordInput.value.trim().length >= 8 && firstNameInput.value.trim() != "" && secondNameInput.value.trim() != "") {
-			alert("everything correct");
+			if (checkTermsOfUse == "no") {
+				setTimeout(function() {
+					TermsOfUse.style.transform = "translate(26px, 1px) rotate(0deg)";
+					
+					setTimeout(function() {
+						TermsOfUse.style.transform = "translate(24px, -2px) rotate(-1deg)";
+						
+						setTimeout(function() {
+							TermsOfUse.style.transform = "translate(22px, 0px) rotate(1deg)";
+							TermsOfUse.style.color = "red";
+							TermsOfUse.style.backgroundColor = "red";
+							TermsOfUse.querySelector('p').style.backgroundColor = "pink";
+							
+							setTimeout(function() {
+								TermsOfUse.style.transform = "translate(28px, 2px) rotate(0deg)";
+								
+								setTimeout(function() {
+									TermsOfUse.style.transform = "translate(26px, -1px) rotate(1deg)";
+									TermsOfUse.querySelector('p').style.backgroundColor = "transparent";
+									
+									setTimeout(function() {
+										TermsOfUse.style.transform = "translate(24px, 2px) rotate(-1deg)";
+										
+										setTimeout(function() {
+											TermsOfUse.style.transform = "translate(22px, 1px) rotate(0deg)";
+											TermsOfUse.querySelector('p').style.backgroundColor = "pink";
+											
+											setTimeout(function() {
+												TermsOfUse.style.transform = "translate(28px, 1px) rotate(-1deg)";
+												
+												setTimeout(function() {
+													TermsOfUse.style.transform = "translate(24px, -1px) rotate(1deg)";
+													TermsOfUse.querySelector('p').style.backgroundColor = "transparent";
+													
+													setTimeout(function() {
+														TermsOfUse.style.transform = "translate(26px, 2px) rotate(0deg)";
+														TermsOfUse.style.backgroundColor = "transparent";
+														
+														setTimeout(function() {
+															TermsOfUse.style.transform = "translate(25px, 0px) rotate(0deg)";
+															TermsOfUse.style.color = "black";
+														}, 100);
+													}, 100);
+												}, 100);
+											}, 100);
+										}, 100);
+									}, 100);
+								}, 100);
+							}, 100);
+						}, 100);
+					}, 100);
+				}, 100);
+			} else {
+				alert("everything correct");
+			}
 		} else {
 			if (!validateEmailReg(emailInput.value)) {
 				emailAlert.style.display = "block";
@@ -2089,6 +2332,108 @@ function checkSFormData(btn) {
 		}
 		
 	}, 1200);
+}
+
+function checkLFormData(btn) {
+	
+	const emailInput = document.querySelector("#LEmail");
+	const passwordInput = document.querySelector("#LPassword");
+	
+	const LoginAlert = document.querySelector(".LAlert");
+	const form = document.querySelector("#loginFormCheck");
+	
+	btn.style.cursor='not-allowed';
+	btn.style.opacity='0.5';
+	btn.querySelector('.checkFormData').style.display='block';
+	
+	setTimeout(function() {
+		btn.style.cursor='pointer';
+		btn.style.opacity='1';
+		btn.querySelector('.checkFormData').style.display='none';
+		
+		LoginAlert.style.display = "block";
+		setTimeout(function() {
+			LoginAlert.style.opacity = "1";
+			LoginAlert.style.transform = "translate(0, -160px)";
+			form.style.transform = "translateY(-27px)";
+			
+			setTimeout(function() {
+				LoginAlert.style.opacity = "0";
+				LoginAlert.style.transform = "translate(0, -177px)";
+				form.style.transform = "translateY(-60px)";
+				
+				setTimeout(function() {
+					LoginAlert.style.display = "none";
+				}, 200);
+			}, 5000);
+		}, 200);
+	}, 1200);
+}
+
+// when clicking Get Started button in homepage
+function goToSignUpWithAnim() {
+	const c_getStarted = document.querySelector(".getStarted"); //get the div of getStarted class
+	const bg = c_getStarted.querySelector("#signBG"); //get the background
+	const bg1 = c_getStarted.querySelector("#signBG1"); //get the text infront of background
+	const c_signUP = c_getStarted.querySelector("#signUpForm"); //get sign up form div
+	const bg1_cs = bg1.querySelectorAll('*'); //get All what is inside the bg1Container
+	const forgetPSW = c_getStarted.querySelector('#forgetPassword'); //get the div of forgetPassword id
+	
+	//set the backgrounds to right and 0% width
+	bg.style.right = "0px";
+	bg.style.width = "0%";
+	bg1.style.right = "0px";
+	bg1.style.width = "0%";
+	
+	//hide signup :) and its elements
+	c_signUP.style.visibility = "hidden";
+	
+	//hide forget password
+	forgetPSW.style.visibility = "hidden";
+	
+	c_getStarted.style.background = "transparent";
+	
+	// for each bg element hide it
+	for (var x = 0; x < bg1_cs.length; x++) {
+		bg1_cs[x].style.visibility = "hidden";
+		bg1_cs[x].style.transform = "translateX(-900px)";
+		bg1_cs[x].style.transition = "all 0.6s cubic-bezier(.1,.29,.21,1.47)";
+    }
+	
+	//show the getStarted
+	c_getStarted.style.display = "flex"; //ahh why adding these comments BRUH!!
+	
+	// after doing ↑↑↑ these ↑↑↑:
+	setTimeout(function() {
+		bg.style.width = "100%"; // it is so clear here { ß⌠--⌡ }
+		bg1.style.width = "100%";
+		
+		setTimeout(function() {
+			c_getStarted.style.background = "#FFF";
+			c_signUP.style.visibility = "visible";
+			
+			bg1_cs.forEach((bg1_content) => {
+				bg1_content.style.visibility = "visible";
+			});
+			
+			bg.style.right = "unset";
+			bg.style.left = "0px";
+			bg.style.backgroundPosition = "0% 100%";
+			bg.style.width = "450px";
+			bg1.style.right = "unset";
+			bg1.style.left = "0px";
+			bg1.style.backgroundPosition = "0% 100%";
+			bg1.style.width = "450px";
+			
+			bg1_cs.forEach((bg1_content, index) => {
+				setTimeout(function() {
+					bg1_content.style.transform = "translateX(0px)";
+				}, index * 100);
+			});
+			
+		}, 500);
+	}, 100);
+	
 }
 	</script>
 </body>
